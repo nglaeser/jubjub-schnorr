@@ -29,20 +29,11 @@ fn challenge_hash(R: JubJubExtended, message: BlsScalar) -> JubJubScalar {
 #[derive(PartialEq, Clone, Copy, Debug)]
 #[cfg_attr(feature = "canon", derive(Canon))]
 pub struct Signature {
-    u: JubJubScalar,
-    R: JubJubExtended,
+    pub u: JubJubScalar,
+    pub R: JubJubExtended,
 }
 
 impl Signature {
-    pub fn u(&self) -> &JubJubScalar {
-        &self.u
-    }
-
-    #[allow(non_snake_case)]
-    pub fn R(&self) -> &JubJubExtended {
-        &self.R
-    }
-
     /// Signs a chosen message with a given secret key
     /// using the dusk variant of the Schnorr signature scheme.
     #[allow(non_snake_case)]
